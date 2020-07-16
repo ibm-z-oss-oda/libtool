@@ -4,7 +4,7 @@ setuptools.setup(
     name='auto_pip',
     version='1.1',
     license='MIT',
-    description='create library',
+    description='create and manage library',
     author='matan h',
     author_email='matan.honig2@gmail.com,',
     url='',

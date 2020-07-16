@@ -56,7 +56,7 @@ class Library:
         with open(init_file, "w") as init:
             init.write(init_text)
 
-    
+
     def c_setup(self):
         if self.install_requires is None:
             self.install_requires = []
