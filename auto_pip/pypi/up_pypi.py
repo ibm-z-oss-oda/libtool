@@ -7,7 +7,7 @@ pause
 
 @echo on
 
-twine upload {folder} {opp} dist/*
+twine upload {opp} dist/*
 @echo off
 echo Press any key for exit . . .
 pause>nul

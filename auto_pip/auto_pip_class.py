@@ -88,10 +88,10 @@ class Library:
         tab_dict = {"\t": "", " " * 4: ""}
         funk = lambda s: Bustr(s).replace_all(tab_dict, 1)
         no_tabs_main = list(map(funk, self.main))
+        no_tabs_main[-1] = no_tabs_main[-1].rstrip()
         ####
-        python_code = self.imports_code +["\n\n"]+ no_tabs_main
-        python_code[-1] = python_code[-1].rstrip()
-        python_code = "".join(python_code)
+        python_code = "\n".join(self.imports_code) + "\n\n" + "".join(no_tabs_main)
+        ###
         md_in = os.path.dirname(__file__) + "\\" + "README_in.md"
         build_md(
             name=self.folder,

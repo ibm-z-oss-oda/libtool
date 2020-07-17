@@ -122,6 +122,7 @@ def parse(argv=None, ):
     #####################################################
     if argv is None:
         argv = sys.argv
+        argv.pop(0)  # pop __file__
 
     argv1_tree = [
         "version",  # remove build folders and up version
@@ -139,7 +140,8 @@ def parse(argv=None, ):
     argv = BuList(argv.copy())
     # print("argv=",argv)
     ###################
-    argv.pop(0)  # pop __file__(or "__file__")
+
+
 
     first = argv.pops(0, funk=help)
 
