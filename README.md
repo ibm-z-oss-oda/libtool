@@ -49,10 +49,9 @@ and the auto_pip will ask you if you want to edit readme.
 
 To change version number:
 ```
-library v 1.0.3
-#or 
-library v 6.7
+library v
 ```
+and the auto_pip ask "enter new version:".
 
 To upload:
 ```
@@ -121,7 +120,7 @@ l = Library(
     url = "http://your.url.com",
     pylicense="mit",
     author="author",
-    install_requires=["mhyt","numpy"],
+    install_requires=["mhyt","mhmovie"],
     #and the additional options:
     folder="foldername",
     start_version="2.7.3",
@@ -158,7 +157,7 @@ up("foldername","-r testpypi")
 * [wheel](https://github.com/pypa/wheel) - build help for library
 * [twine](https://twine.readthedocs.io/) - for publishing packages on PyPI
 ## Author
-matan h
+####matan h
 ## License
 This project is licensed under the MIT License.
 ### Created by
