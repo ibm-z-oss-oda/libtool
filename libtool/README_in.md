@@ -32,4 +32,4 @@ type in terminal:
 This project is licensed under the {pylicense} License.
 
 ###created by
-this library created by [auto_pip](https://github.com/matan-h/auto_pip)
+this library created by [libtool](https://github.com/matan-h/libtool)

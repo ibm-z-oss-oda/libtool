@@ -12,7 +12,7 @@ class Library:
     def __init__(self, test_file, email, description, url, pylicense, author,
                   install_requires: list or tuple,folder="auto", start_version="0.0.1", scripts=None):
         # ###################
-        #install_requires += ["auto_pip"]
+        #install_requires += ["libtool"]
         # #########################################################################################################################################################################
         (self.author, self.email, self.description, self.url, self.pylicense,
          self.install_requires, self.folder, self.scripts

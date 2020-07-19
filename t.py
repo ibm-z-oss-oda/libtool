@@ -14,7 +14,7 @@ class Bustr(str):
             text = text.replace(i, j, count)
         return text
 
-from auto_pip.util.builtins import BuList
+from libtool.util.builtins import BuList
 tab = {"\t": "", " " * 4: ""}
 mylist = str_p.split("\n")
 funk = lambda s: Bustr(s).replace_all(tab, 1)

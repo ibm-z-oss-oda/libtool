@@ -7,7 +7,7 @@ u = Library(
     url="http://test.author.com",
     install_requires=["numpy"],
     start_version="0.2",
-    scripts=['auto_pip\\library.bat'],
+    scripts=['libtool\\library.bat'],
 )
 u.c_setup()
 u.c_init()

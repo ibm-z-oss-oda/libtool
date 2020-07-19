@@ -1,12 +1,12 @@
 import sys
 import configparser
 ################################
-from auto_pip.auto_pip_class import Library
-from auto_pip.up_version import *
-from auto_pip.pypi import up_pypi
+from libtool.libtool_class import Library
+from libtool.up_version import *
+from libtool.pypi import up_pypi
 #######################################
-from auto_pip.util.builtins import *
-from auto_pip.util.regex import get_val
+from libtool.util.builtins import *
+from libtool.util.regex import get_val
 
 
 ######################################
@@ -92,7 +92,7 @@ v----------version
 c----------create
 u----------upload
 ?----------help
-for more help see https://github.com/matan-h/auto_pip
+for more help see https://github.com/matan-h/libtool
     """)
     quit(0)
 

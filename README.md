@@ -1,11 +1,11 @@
-# auto_pip
+# libtool
 
 
-auto_pip is a Python library for creating a Python library,
+libtool is a Python library for creating a Python library,
 and also manages versions and uploading to PyPi with twine
 
-auto_pip runs in Python 3+
-auto_pip runs only in Windows
+libtool runs in Python 3+
+libtool runs only in Windows
 ## Instructions
 You need to make a
 use_file.ini like this(see more options below):
@@ -34,46 +34,46 @@ if __name__ == "__main__":
 ```
 To create library from ini:
 ```
-library c {your ini file}
+libtool c {your ini file}
 #or
-library create {your ini file}
+libtool create {your ini file}
 ```
-And the auto_pip creates the following files automatically:
+And the libtool creates the following files automatically:
 
 * setup.py
 * __ init __.py
 * License.txt 
 * README.md
 
-and the auto_pip will ask you if you want to edit readme.
+and the libtool will ask you if you want to edit readme.
 
 To change version number:
 ```
-library v
+libtool v
 ```
-and the auto_pip ask "enter new version:".
+and the libtool ask "enter new version:".
 
 To upload:
 ```
-library upload
+libtool upload
 #or
-library u
+libtool u
 #you can add twine options e.g.
-library u -r testpypi
+libtool u -r testpypi
 ```
 Twine options [here](https://twine.readthedocs.io/en/latest/#twine-upload)
 
 ###Access from python
-To access the auto_pip from python file:
+To access the libtool from python file:
 ```python
-from auto_pip._cmd_argv import cmd
+from libtool._cmd_argv import cmd
 cmd.parse(["c", "use_file.ini"])
 # or 
 cmd.parse( ["u", "-r testpypi"])
 #and all commands
 ```
 ## Prerequisites
-auto_pip depends on the python modules:
+libtool depends on the python modules:
 
 Markdown-Editor,
 requests,
@@ -85,13 +85,13 @@ and twine
 To install with pip-
 type in terminal:
 ```
-(sudo) pip install auto_pip
+(sudo) pip install libtool
 ```
 if this doesn't work try:
 ```
 pip install --upgrade setuptools wheel
 ```
-if there is still an error please open an issue in [github issues](https://github.com/matan-h/auto_pip/issues).
+if there is still an error please open an issue in [github issues](https://github.com/matan-h/libtool/issues).
 
 ## Additional options
 Additional options for ini file (also in "info" key): 
@@ -111,7 +111,7 @@ scripts:script1.cmd,script2.exe
 You can also set custom options using Python.
 To create a library:
 ```python
-from auto_pip.auto_pip_class import Library
+from libtool.libtool_class import Library
 
 l = Library(
     test_file="test.py",
@@ -139,13 +139,13 @@ l.edit_md()
 ```
 To change version:
 ```python
-from auto_pip.up_version import UpVersion
+from libtool.up_version import UpVersion
 
 u = UpVersion("foldername")
 ```
 To publish to PyPi:
 ```python
-from auto_pip.pypi.up_pypi import up
+from libtool.pypi.up_pypi import up
 up("foldername")
 #you can add twine options e.g.
 up("foldername","-r testpypi")
@@ -161,5 +161,5 @@ matan h
 ## License
 This project is licensed under the MIT License.
 ### Created by
-This library was created using [auto_pip](https://github.com/matan-h/auto_pip)
+This library was created using [libtool](https://github.com/matan-h/libtool)
 
