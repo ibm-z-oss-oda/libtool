@@ -4,16 +4,16 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='libtool',
-    version='0.0.1',
+    version='0.0.2',
     license='MIT',
     description='Create, version and upload library',
     author='matan h',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author_email='matan.honig2@gmail.com,',
-    url='',
+    url='https://github.com/matan-h/libtool',
     packages=['libtool', "libtool._cmd_argv", "libtool.util", "libtool.pypi"],
-    scripts=['libtool\\cmd\\library.bat'],
+    scripts=['libtool\\cmd\\libtool.bat'],
     package_data={'libtool': ["README_in.md"]},
     install_requires=["Markdown-Editor", "requests", "setuptools", "wheel", "twine"],
     classifiers=[

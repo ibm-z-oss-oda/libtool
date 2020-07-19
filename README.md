@@ -4,8 +4,7 @@
 libtool is a Python library for creating a Python library,
 and also manages versions and uploading to PyPi with twine
 
-libtool runs in Python 3+
-libtool runs only in Windows
+libtool runs in Python 3+ and only in Windows.
 ## Instructions
 You need to make a
 use_file.ini like this(see more options below):
@@ -47,13 +46,13 @@ And the libtool creates the following files automatically:
 
 and the libtool will ask you if you want to edit readme.
 
-To change version number:
+To change version number(run version from the folder with setup.py):
 ```
 libtool v
 ```
 and the libtool ask "enter new version:".
 
-To upload:
+To upload (Run upload from the folder with setup.py):
 ```
 libtool upload
 #or
@@ -64,6 +63,7 @@ libtool u -r testpypi
 Twine options [here](https://twine.readthedocs.io/en/latest/#twine-upload)
 
 ###Access from python
+
 To access the libtool from python file:
 ```python
 from libtool._cmd_argv import cmd
@@ -94,7 +94,7 @@ pip install --upgrade setuptools wheel
 if there is still an error please open an issue in [github issues](https://github.com/matan-h/libtool/issues).
 
 ## Additional options
-Additional options for ini file (also in "info" key): 
+Additional options for ini file (also in "info" section): 
 ```ini
 #foldername with your library in it, then not all imports need
 #to be in file
