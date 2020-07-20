@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='libtool',
-    version='0.0.2',
+    version='0.1.2',
     license='MIT',
     description='Create, version and upload library',
     author='matan h',
