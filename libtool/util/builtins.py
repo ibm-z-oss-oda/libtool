@@ -12,6 +12,7 @@ class Bustr(str):
         return text
 
 
+
 class BuDict(dict):
     def __init__(self, s=None):
         super().__init__(s)

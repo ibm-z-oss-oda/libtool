@@ -121,7 +121,7 @@ class Library:
 def __main__():
     import os
     os.chdir("..")
-    os.system("py ..\\use_file.py")
+    os.system("py ..\\create.py")
     # u = Library("..\\test_file.py")
     # u.Csetup("matan", "@gmail", "to add @gmail", "matan.wixsite.com",install_requires=("r","rr"))
     # u.Cinit()

@@ -117,7 +117,7 @@ def _parse(f, argv, es):
         help(argv, es)
 
 
-def parse(argv=None, ):
+def parse(argv=None):
     # quit(5555)
     #####################################################
     if argv is None:

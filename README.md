@@ -62,9 +62,8 @@ libtool u -r testpypi
 ```
 Twine options [here](https://twine.readthedocs.io/en/latest/#twine-upload)
 
-###Access from python
-
-To access the libtool from python file:
+### Access from python
+To access the libtool from a python file:
 ```python
 from libtool._cmd_argv import cmd
 cmd.parse(["c", "use_file.ini"])
@@ -92,8 +91,15 @@ if this doesn't work try:
 pip install --upgrade setuptools wheel
 ```
 if there is still an error please open an issue in [github issues](https://github.com/matan-h/libtool/issues).
-
 ## Additional options
+
+To show help message:
+```
+libtool ?
+#or
+libtool help
+```
+
 Additional options for ini file (also in "info" section): 
 ```ini
 #foldername with your library in it, then not all imports need
@@ -106,6 +112,22 @@ start_version:1.0.0
 #separate scripts with commas.
 scripts:script1.cmd,script2.exe
 ```
+Additional options for create library command: 
+``` 
+# to disable open editor to edit readme.md:
+libtool c {your ini file} -e edit
+# to disable create readme.md:
+libtool c {your ini file} -e readme 
+# to disable create setup.py:
+libtool c {your ini file} -e setup
+# to disable create __init__.py:
+libtool c {your ini file} -e init
+# to disable create licence.txt:
+libtool c {your ini file} -e licence
+# you can merge options
+libtool c use_file.ini -e edit readme setup init licence
+```
+View examples [here](https://github.com/matan-h/libtool/tree/master/examples)
 
 ## Custom options
 You can also set custom options using Python.
@@ -141,14 +163,14 @@ To change version:
 ```python
 from libtool.up_version import UpVersion
 
-u = UpVersion("foldername")
+UpVersion("my-sample-library")
 ```
 To publish to PyPi:
 ```python
 from libtool.pypi.up_pypi import up
-up("foldername")
+up("my-sample-library")
 #you can add twine options e.g.
-up("foldername","-r testpypi")
+up("my-sample-library","-r testpypi")
 ```
 ## Built With
 * [Markdown-Editor](https://github.com/ncornette/Python-Markdown-Editor.git) - for editing markdown files
