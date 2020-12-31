@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='libtool',
-    version='0.1.2',
+    version='1.0.0',
     license='MIT',
     description='Create, version and upload library',
     author='matan h',
@@ -15,6 +15,7 @@ setuptools.setup(
     packages=['libtool', "libtool._cmd_argv", "libtool.util", "libtool.pypi"],
     scripts=['libtool\\cmd\\libtool.bat'],
     package_data={'libtool': ["README_in.md"]},
+
     install_requires=["Markdown-Editor", "requests", "setuptools", "wheel", "twine"],
     classifiers=[
         "Programming Language :: Python :: 3",

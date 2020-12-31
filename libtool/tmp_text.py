@@ -1,6 +1,10 @@
 def _setup_build(package_name, version, License, description, author, author_email, url, install_requires,
                  Programming_Language,
                  python_requires, scripts):
+    package_data = """package_data = {
+        '{}': ['LICENSE'],
+    },""".format(package_name)
+
     if scripts is not None:
         scripts = f"scripts={scripts},"
     else:
@@ -22,6 +26,7 @@ setuptools.setup(
     packages=['{package_name}'],
     {scripts}
     install_requires = {str(install_requires)},
+    {package_data}
     classifiers=[
         "Programming Language :: Python :: {Programming_Language}",
         "License :: OSI Approved :: {License}",
@@ -44,6 +49,3 @@ __author_email__ = '{email}'
 __license__ = '{pylicense}'
 """
     return a
-
-
-

@@ -2,14 +2,16 @@ import shutil
 import glob as sys_glob
 import re
 from .util.regex import get_val
+
+
 class UpVersion:
-    def __init__(self , folder,v = None):
+    def __init__(self, folder, v=None):
         self.init_name = folder + "\\__init__.py"
         self.setup_name = "setup.py"
         ########################################
         if not v:
             with open(self.setup_name) as setup_bin:
-                self.v =get_val("version",setup_bin.read())
+                self.v = get_val("version", setup_bin.read())
         ###########################
         self.up_n()
         ##########################
@@ -27,6 +29,9 @@ class UpVersion:
                 quit(2)
                 # raise self.VersionException(self.v)
             if self.v[-1] == ".":
+                print("invalid version")
+                quit(2)
+            if self.v in ["", " "]:
                 print("invalid version")
                 quit(2)
         except IndexError:
@@ -49,13 +54,15 @@ class UpVersion:
         self.file_replace(self.setup_name, setup_sec)
 
     def init_replace(self):
-        init_sec = ["__version__.+\'(.+).", f"__version__ = \'{self.v}\'"]
+        init_sec = [r"__version__.+[\'|\"](.+).", f"__version__ = \'{self.v}\'"]
         self.file_replace(self.init_name, init_sec)
 
     class VersionException(BaseException):
         def __init__(self, s):
             message = f"Invalid version - \"{s}\""
             super().__init__(message)
+
+
 class Remove:
     def __init__(self):
         self.rmtree('dist')

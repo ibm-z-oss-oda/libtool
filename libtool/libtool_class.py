@@ -5,14 +5,14 @@ import sys
 from os import path
 from .tmp_text import _setup_build, _init_bg
 from .build_md import build_md
-from  .util.builtins import Bustr
+from .util.builtins import Bustr
 
 
 class Library:
     def __init__(self, test_file, email, description, url, pylicense, author,
-                  install_requires: list or tuple,folder="auto", start_version="0.0.1", scripts=None):
+                 install_requires: list or tuple, folder="auto", start_version="0.0.1", scripts=None):
         # ###################
-        #install_requires += ["libtool"]
+        # install_requires += ["libtool"]
         # #########################################################################################################################################################################
         (self.author, self.email, self.description, self.url, self.pylicense,
          self.install_requires, self.folder, self.scripts
@@ -26,7 +26,11 @@ class Library:
         if folder != "auto":
             self.folder = folder
         else:
-            self.folder = [*self.imports][0].module[0]
+            folder = [*self.imports][0]
+            if folder.module:
+                self.folder = folder.module[0]
+            else:
+                self.folder = folder.name[0]
         self.abspath = lambda p: self.folder + "\\" + p
         # ######################################################################
         # v_file = path.abspath("version.txt")
@@ -55,7 +59,6 @@ class Library:
 
         with open(init_file, "w") as init:
             init.write(init_text)
-
 
     def c_setup(self):
         if self.install_requires is None:
@@ -114,9 +117,7 @@ class Library:
 
     def edit_md(self):
         md = path.abspath("README.md")
-        os.system(f"markdown_edit {md}")
-        pass  # todo:edit md
-
+        os.system(f"markdown_edit \"{md}\"")
 
 def __main__():
     import os

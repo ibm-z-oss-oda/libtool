@@ -1,3 +1,5 @@
+import json
+
 import requests
 from collections import namedtuple
 
@@ -57,7 +59,12 @@ def get_requires_info(install_requires):
     home_urls = {}
     for install_r in install_requires:
         r = requests.get('https://pypi.python.org/pypi/{}/json'.format(install_r))
-        description = r.json()["info"]["summary"]
+        try:
+            description = r.json()["info"]["summary"]
+        except json.decoder.JSONDecodeError:
+            home_urls.update({install_r:""})
+            descriptions.update({install_r:"libtool cant find this library"})
+            continue
         descriptions.update({install_r: description})
         ###############################################
         home_url = (r.json()["info"]["home_page"])
@@ -74,8 +81,8 @@ class License:
         f = self.get_json()
         year = self.getyear()
         name = self.name
-        f = f.replace("[year]", "[" + str(year) + "]", 1)
-        f = f.replace("[fullname]", "[" + name + "]", 1)
+        f = f.replace("[year]", str(year), 1)
+        f = f.replace("[fullname]", name , 1)
         return f
 
     def get_json(self) -> str:
