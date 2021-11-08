@@ -1,2 +1,2 @@
-from libtool._cmd_argv import cmd
+from libtool import cmd
 cmd.parse(["v"])

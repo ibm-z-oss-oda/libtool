@@ -12,8 +12,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     author_email='matan.honig2@gmail.com,',
     url='https://github.com/matan-h/libtool',
-    packages=['libtool', "libtool._cmd_argv", "libtool.util", "libtool.pypi"],
-    scripts=['libtool\\cmd\\libtool.bat'],
+    packages=['libtool', "libtool.util", "libtool.pypi"],
+    entry_points={'console_scripts':["libtool=libtool.cmd:parse"]},
+
     package_data={'libtool': ["README_in.md"]},
 
     install_requires=["Markdown-Editor", "requests", "setuptools", "wheel", "twine"],

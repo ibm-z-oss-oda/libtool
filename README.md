@@ -64,12 +64,15 @@ Twine options [here](https://twine.readthedocs.io/en/latest/#twine-upload)
 
 ### Access from python
 To access the libtool from a python file:
+
 ```python
-from libtool._cmd_argv import cmd
+
+from libtool import cmd
+
 cmd.parse(["c", "use_file.ini"])
 # or 
-cmd.parse( ["u", "-r testpypi"])
-#and all commands
+cmd.parse(["u", "-r testpypi"])
+# and all commands
 ```
 ## Prerequisites
 libtool depends on the python modules:
